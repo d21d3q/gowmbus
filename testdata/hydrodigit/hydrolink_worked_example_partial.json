@@ -1,0 +1,8 @@
+{
+  "_": "telegram",
+  "encryption": "encrypted telegram: AES key required (use --key)",
+  "id": "22184713",
+  "media": "water",
+  "meter": "hydrodigit",
+  "status_perm_alarm": true
+}

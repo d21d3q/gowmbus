@@ -1,0 +1,16 @@
+{
+  "_": "telegram",
+  "battery_percent_pct": 3,
+  "battery_percent_raw": 3,
+  "error_bits_hex": "0x000000",
+  "id": "03245501",
+  "media": "warm water",
+  "meter": "hydrodigit",
+  "meter_datetime": "2023-08-10 14:23",
+  "msb_flags_hex": "0x00",
+  "alarm_tamper": true,
+  "status_perm_alarm": true,
+  "status_reverse_flow": true,
+  "timestamp": "1111-11-11T11:11:11Z",
+  "total_m3": 6.735
+}
