@@ -57,7 +57,7 @@ func Parse(raw []byte) (Telegram, error) {
 	t.StatusFlags = decodeStatusFlags(t.Status)
 
 	var tpl TPLInfo
-	if t.CI == 0x7A {
+	if needsShortTPL(t.CI) {
 		if shortTPLPresent(raw, 11) {
 			parsed, consumed, err := parseShortTPL(raw, 11)
 			if err != nil {
@@ -134,4 +134,8 @@ func shortTPLPresent(data []byte, offset int) bool {
 		return false
 	}
 	return true
+}
+
+func needsShortTPL(ci byte) bool {
+	return ci == 0x7A
 }

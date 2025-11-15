@@ -3,6 +3,7 @@ package gowmbus
 import (
 	"context"
 	"fmt"
+	"math"
 	"strings"
 	"testing"
 
@@ -60,8 +61,16 @@ func diffMaps(expected, actual map[string]any) string {
 		if !ok {
 			return fmt.Sprintf("missing key %s", k)
 		}
-		if fmt.Sprintf("%v", v) != fmt.Sprintf("%v", av) {
-			return fmt.Sprintf("key %s mismatch expected %v got %v", k, v, av)
+		switch ev := v.(type) {
+		case float64:
+			avFloat, ok := av.(float64)
+			if !ok || math.Abs(ev-avFloat) > 1e-6 {
+				return fmt.Sprintf("key %s mismatch expected %v got %v", k, v, av)
+			}
+		default:
+			if fmt.Sprintf("%v", v) != fmt.Sprintf("%v", av) {
+				return fmt.Sprintf("key %s mismatch expected %v got %v", k, v, av)
+			}
 		}
 	}
 	return ""

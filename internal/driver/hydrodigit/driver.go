@@ -27,10 +27,12 @@ func init() {
 	driver.Register(driver.Detection{
 		Manufacturer: manufacturerBMT,
 		CI:           ciHydrodigitPrimary,
+		DeviceTypes:  []byte{deviceTypeWater, deviceTypeWarmWater},
 	}, Driver{})
 	driver.Register(driver.Detection{
 		Manufacturer: manufacturerBMT,
 		CI:           ciHydrodigitExtended,
+		DeviceTypes:  []byte{deviceTypeWater, deviceTypeWarmWater},
 	}, Driver{})
 }
 
@@ -90,10 +92,10 @@ func (Driver) Process(_ context.Context, t *frame.Telegram) (map[string]any, err
 		fields["contents"] = mfct.Contents
 	}
 	if mfct.Voltage > 0 {
-		fields["voltage_v"] = roundTo(mfct.Voltage, 2)
+		fields["voltage_v"] = mfct.Voltage
 	}
 	if mfct.BackflowM3 > 0 {
-		fields["backflow_m3"] = roundTo(mfct.BackflowM3, 3)
+		fields["backflow_m3"] = mfct.BackflowM3
 	}
 	if mfct.LeakDate != "" {
 		fields["leak_date"] = mfct.LeakDate
@@ -101,7 +103,7 @@ func (Driver) Process(_ context.Context, t *frame.Telegram) (map[string]any, err
 	for _, month := range monthOrder {
 		if value, ok := mfct.MonthlyTotals[month]; ok && value != 0 {
 			key := fmt.Sprintf("%s_total_m3", month)
-			fields[key] = roundTo(value, 2)
+			fields[key] = value
 		}
 	}
 	if mfct.Variant == "extended" {
@@ -134,7 +136,7 @@ func populateExtendedFields(fields map[string]any, data Data) {
 	fields["error_bits_hex"] = fmt.Sprintf("0x%06X", data.ErrorBits)
 	fields["msb_flags_hex"] = fmt.Sprintf("0x%02X", data.MSByte)
 	if data.OptionalSections.HasReverseFlow {
-		fields["reverse_flow_m3"] = roundTo(data.OptionalSections.ReverseFlowM3, 3)
+		fields["reverse_flow_m3"] = data.OptionalSections.ReverseFlowM3
 	}
 	if data.OptionalSections.HasEmptyPipe {
 		fields["empty_pipe_date"] = data.OptionalSections.EmptyPipeDate

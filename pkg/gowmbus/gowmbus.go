@@ -11,6 +11,7 @@ import (
 
 	"gitlab.com/d21d3q/gowmbus/internal/crypto"
 	"gitlab.com/d21d3q/gowmbus/internal/driver"
+	_ "gitlab.com/d21d3q/gowmbus/internal/driver/hydrocalm4" // register driver
 	_ "gitlab.com/d21d3q/gowmbus/internal/driver/hydrodigit" // register driver
 	"gitlab.com/d21d3q/gowmbus/internal/frame"
 )
@@ -73,11 +74,7 @@ func AnalyzeHexWithOptions(ctx context.Context, raw string, opts AnalyzeOptions)
 		Telegram:  &telegram,
 	}
 
-	det := driver.Detection{
-		Manufacturer: telegram.Manufacturer,
-		CI:           telegram.CI,
-	}
-	drv, err := driver.Lookup(det)
+	drv, err := driver.Lookup(&telegram)
 	if err != nil {
 		return result, nil
 	}
