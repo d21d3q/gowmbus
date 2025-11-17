@@ -10,7 +10,7 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 
-	"gitlab.com/d21d3q/gowmbus/pkg/gowmbus"
+	"github.com/d21d3q/gowmbus/pkg/gowmbus"
 )
 
 var (

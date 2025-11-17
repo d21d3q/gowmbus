@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"sync"
 
-	"gitlab.com/d21d3q/gowmbus/internal/frame"
+	"github.com/d21d3q/gowmbus/internal/frame"
 )
 
 // Detection contains minimal information required to identify a driver.

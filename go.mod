@@ -1,4 +1,4 @@
-module gitlab.com/d21d3q/gowmbus
+module github.com/d21d3q/gowmbus
 
 go 1.25.0
 

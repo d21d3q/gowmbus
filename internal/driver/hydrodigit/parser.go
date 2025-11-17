@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"gitlab.com/d21d3q/gowmbus/internal/driver/wmbus"
+	"github.com/d21d3q/gowmbus/internal/driver/wmbus"
 )
 
 type standardReadings struct {

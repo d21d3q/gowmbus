@@ -3,7 +3,7 @@ package gowmbus
 import (
 	"context"
 
-	internalopts "gitlab.com/d21d3q/gowmbus/internal/options"
+	internalopts "github.com/d21d3q/gowmbus/internal/options"
 )
 
 // AnalyzeOptions configures parsing.

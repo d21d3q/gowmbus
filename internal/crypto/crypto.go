@@ -6,7 +6,7 @@ import (
 	"errors"
 	"fmt"
 
-	"gitlab.com/d21d3q/gowmbus/internal/frame"
+	"github.com/d21d3q/gowmbus/internal/frame"
 )
 
 var (
