@@ -9,11 +9,11 @@ import (
 	"strings"
 	"unicode"
 
-	"gitlab.com/d21d3q/gowmbus/internal/crypto"
-	"gitlab.com/d21d3q/gowmbus/internal/driver"
-	_ "gitlab.com/d21d3q/gowmbus/internal/driver/hydrocalm4" // register driver
-	_ "gitlab.com/d21d3q/gowmbus/internal/driver/hydrodigit" // register driver
-	"gitlab.com/d21d3q/gowmbus/internal/frame"
+	"github.com/d21d3q/gowmbus/internal/crypto"
+	"github.com/d21d3q/gowmbus/internal/driver"
+	_ "github.com/d21d3q/gowmbus/internal/driver/hydrocalm4" // register driver
+	_ "github.com/d21d3q/gowmbus/internal/driver/hydrodigit" // register driver
+	"github.com/d21d3q/gowmbus/internal/frame"
 )
 
 // Result captures the outcome of AnalyzeHex.

@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"gitlab.com/d21d3q/gowmbus/internal/frame"
+	"github.com/d21d3q/gowmbus/internal/frame"
 )
 
 func TestLegacyManufacturerBlock(t *testing.T) {

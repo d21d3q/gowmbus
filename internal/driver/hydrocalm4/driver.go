@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"gitlab.com/d21d3q/gowmbus/internal/driver"
-	"gitlab.com/d21d3q/gowmbus/internal/driver/wmbus"
-	"gitlab.com/d21d3q/gowmbus/internal/frame"
+	"github.com/d21d3q/gowmbus/internal/driver"
+	"github.com/d21d3q/gowmbus/internal/driver/wmbus"
+	"github.com/d21d3q/gowmbus/internal/frame"
 )
 
 const (

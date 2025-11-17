@@ -9,7 +9,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"gitlab.com/d21d3q/gowmbus/internal/testutil"
+	"github.com/d21d3q/gowmbus/internal/testutil"
 )
 
 func TestHydrodigitGolden(t *testing.T) {
